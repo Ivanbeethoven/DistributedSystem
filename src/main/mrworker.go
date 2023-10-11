@@ -12,17 +12,18 @@ package main
 
 import "6.5840/mr"
 import "plugin"
-import "os"
-import "fmt"
+
+// import "os"
+// import "fmt"
 import "log"
 
 func main() {
-	if len(os.Args) != 2 {
-		fmt.Fprintf(os.Stderr, "Usage: mrworker xxx.so\n")
-		os.Exit(1)
-	}
+	// if len(os.Args) != 2 {
+	// 	fmt.Fprintf(os.Stderr, "Usage: mrworker xxx.so\n")
+	// 	os.Exit(1)
+	// }
 
-	mapf, reducef := loadPlugin(os.Args[1])
+	mapf, reducef := loadPlugin("wc.so")
 
 	mr.Worker(mapf, reducef)
 }
